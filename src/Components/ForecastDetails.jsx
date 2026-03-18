@@ -20,10 +20,10 @@ function ForecastDetails(){
                     const day = date.toLocaleDateString("en-US",{weekday:"short"})
 
                     return (
-                        <li key={index}className="bg-white/20 md:p-3 p-1 rounded-xl text-center md:text-lg " >
-                            <h1>{day}</h1>
+                        <li key={index}className="bg-white/10 md:p-3 p-1 rounded-xl text-center md:text-lg hover:scale-105 transition" >
+                            <h1 className="text-sm">{day}</h1>
                             <img src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} />
-                            <p>{item.main.temp}&deg;C</p>
+                            <p className="font-semibold">{item.main.temp}&deg;C</p>
                         </li>
                     )
                 })

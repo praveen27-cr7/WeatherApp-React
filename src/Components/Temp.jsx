@@ -7,13 +7,13 @@ function Temp(){
 
     return(
         <div className="flex flex-col items-center my-5 text-5xl font-bold">
-            <div className= "text-6xl font-bold mb-2">
+            <div className= "text-6xl font-bold text-white mb-2">
                 {temp ? <h1>{temp.toFixed(1)}&deg;C</h1> : <h1>0&deg;C</h1>}
 
             </div>
-            <div className="flex gap-1 items-center">
+            <div className="flex gap-1 items-center text-white/80">
               {weatherCondition ? <h1>{weatherCondition}</h1> : <h1>--</h1>}
-              <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
+              {icon ? <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} /> : null}
             </div>
             
         </div>
