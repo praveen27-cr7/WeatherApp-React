@@ -9,15 +9,18 @@ function ForecastDetails(){
 
      
     return(
+
+
        <div className="my-10">
-        <ul className="flex justify-around font-medium">
+        <hr className="my-5" />
+        <ul className="flex md:justify-around justify-between font-medium gap-1">
             {
                 nextFiveDays.map((item, index) => {
                     const date = new Date(item.dt_txt)
-                    const day = date.toLocaleDateString("en-US",{weekday:"long"})
+                    const day = date.toLocaleDateString("en-US",{weekday:"short"})
 
                     return (
-                        <li key={index}className="bg-white/20 p-3 rounded-xl text-center text-lg" >
+                        <li key={index}className="bg-white/20 md:p-3 p-1 rounded-xl text-center md:text-lg " >
                             <h1>{day}</h1>
                             <img src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} />
                             <p>{item.main.temp}&deg;C</p>

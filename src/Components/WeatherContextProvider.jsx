@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 import axios from "axios"
-import { use } from "react";
+
+const API_KEY = import.meta.env.VITE_API_KEY
+console.log(API_KEY);
 
 const WeatherContext = createContext()
 
@@ -19,7 +21,7 @@ function WeatherContextProvider(data){
 
     function handleReport(){
         
-        const weatherData = axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6e7d0eeed4d3adc9399d3463e7a2f17c&units=metric`)
+        const weatherData = axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
 
         weatherData.then((success) => {
            const data = success.data
@@ -46,7 +48,7 @@ function WeatherContextProvider(data){
 
         }).catch((err => err))
 
-        const ForecastWeatherdata = axios(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6e7d0eeed4d3adc9399d3463e7a2f17c&units=metric`)
+        const ForecastWeatherdata = axios(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`)
 
         ForecastWeatherdata.then((success)=>{
             const data = success.data
